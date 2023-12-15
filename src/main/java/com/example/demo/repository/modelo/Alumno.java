@@ -2,7 +2,10 @@ package com.example.demo.repository.modelo;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Entity
@@ -10,6 +13,9 @@ import jakarta.persistence.Table;
 public class Alumno {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_alumno")
+	@SequenceGenerator(name = "seq_alumno",sequenceName = "seq_alumno",allocationSize = 1)
+	
 	@Column(name = "alum_id")
 	private Integer id;
 	
