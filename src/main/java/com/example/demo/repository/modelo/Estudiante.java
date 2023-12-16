@@ -1,5 +1,7 @@
 package com.example.demo.repository.modelo;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,9 +13,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "estudiante")
 public class Estudiante {
-	
-	 
-	
+		
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_estudiante")
 	@SequenceGenerator(name = "seq_estudiante",sequenceName = "seq_estudiante",allocationSize = 1)
@@ -30,9 +30,21 @@ public class Estudiante {
 	@Column(name = "estu_cedula")
 	private String cedula;
 	
+	@Column(name = "estu_fecha")
+	private LocalDate fechaNacimiento;
+	
 	//GET Y SET
+	
+	
+	
 	public Integer getId() {
 		return id;
+	}
+	public LocalDate getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+	public void setFechaNacimiento(LocalDate fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
 	}
 	public void setId(Integer id) {
 		this.id = id;
@@ -57,9 +69,9 @@ public class Estudiante {
 	}
 	@Override
 	public String toString() {
-		return "Estudiante [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula + "]";
+		return "Estudiante [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula
+				+ ", fechaNacimiento=" + fechaNacimiento + "]";
 	}
-	
-	
+
 	
 }
