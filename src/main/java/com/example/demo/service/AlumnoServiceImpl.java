@@ -28,6 +28,8 @@ public class AlumnoServiceImpl implements IAlumnoService {
 	@Override
 	public void modificar(Alumno estudiante) {
 		// TODO Auto-generated method stub
+		
+		
 		this.alumnoRepo.actualizar(estudiante);
 		
 	}

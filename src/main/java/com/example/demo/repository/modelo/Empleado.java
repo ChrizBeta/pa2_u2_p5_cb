@@ -1,89 +1,70 @@
 package com.example.demo.repository.modelo;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "empleado")
+@Table(name="empleado")
 public class Empleado {
-	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_empleado")
-	@SequenceGenerator(name = "seq_empleado", sequenceName = "seq_empleado", allocationSize = 1)
-	
-	@Column(name = "emp_id")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_empleado")
+	@SequenceGenerator(name = "seq_empleado",sequenceName = "seq_empleado",allocationSize = 1)
+	@Column(name = "empl_id")
 	private Integer id;
-	
-	@Column(name = "emp_nombre")
-	private String nombre;
-	
-	@Column(name = "emp_puesto")
-	private String puesto;
-	
-	@Column(name = "emp_salario")
+	@Column(name = "empl_salario")
 	private BigDecimal salario;
+	@Column(name = "empl_fechaingreso")
+	private LocalDate fechaIngreso;
+	@OneToOne
+	@JoinColumn(name = "empl_id_ciudadano")
+	private Ciudadano ciudadano;
 	
-	@Column(name = "emp_departamento")
-	private String departamento;
-
+	
+	
 	public Integer getId() {
 		return id;
 	}
-
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public String getPuesto() {
-		return puesto;
-	}
-
-	public void setPuesto(String puesto) {
-		this.puesto = puesto;
-	}
-
-	
-
 	public BigDecimal getSalario() {
 		return salario;
 	}
-
 	public void setSalario(BigDecimal salario) {
 		this.salario = salario;
 	}
-
-	public String getDepartamento() {
-		return departamento;
+	public LocalDate getFechaIngreso() {
+		return fechaIngreso;
 	}
-
-	public void setDepartamento(String departamento) {
-		this.departamento = departamento;
+	public void setFechaIngreso(LocalDate fechaIngreso) {
+		this.fechaIngreso = fechaIngreso;
 	}
-
+	
+	
+	
+	public Ciudadano getCiudadano() {
+		return ciudadano;
+	}
+	public void setCiudadano(Ciudadano ciudadano) {
+		this.ciudadano = ciudadano;
+	}
 	@Override
 	public String toString() {
-		return "Empleado [id=" + id + ", nombre=" + nombre + ", puesto=" + puesto + ", salario=" + salario
-				+ ", departamento=" + departamento + "]";
+		return "Empleado [id=" + id + ", salario=" + salario + ", fechaIngreso=" + fechaIngreso + "]";
 	}
+	
+	
+	
+	
 
-	
-	
-	
-	
 }
-
