@@ -14,6 +14,7 @@ import com.example.demo.service.IAlumnoService;
 import com.example.demo.service.ICiudadanoService;
 import com.example.demo.service.IEmpleadoService;
 import com.example.demo.service.IEstudianteService;
+import com.example.demo.service.IHabitacionService;
 import com.example.demo.service.IHotelService;
 
 @SpringBootApplication
@@ -34,6 +35,9 @@ public class Pa2U2P5CbApplication implements CommandLineRunner {
 	@Autowired
 	private IHotelService hotelService;
 
+	@Autowired
+	private IHabitacionService habitacionService;
+	
 	public static void main(String[] args) {
 		SpringApplication.run(Pa2U2P5CbApplication.class, args);
 	}
@@ -105,6 +109,14 @@ public class Pa2U2P5CbApplication implements CommandLineRunner {
 		htl.setHabitaciones(habitaciones);
 		
 		this.hotelService.guardar(htl);
+		
+		Hotel htl1 = this.hotelService.buscar(7);
+		htl1.setDireccion("Av. Amazonas");
+		this.hotelService.modificar(htl1);
+		
+		
+		this.habitacionService.borrar(15);
+
 		
 
 	}
