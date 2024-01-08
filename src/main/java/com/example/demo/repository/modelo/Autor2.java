@@ -1,4 +1,4 @@
-package com.example.demo.repository.modelo;
+/*package com.example.demo.repository.modelo;
 
 import java.util.List;
 
@@ -57,3 +57,4 @@ public class Autor2 {
 	
 
 }
+*/

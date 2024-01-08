@@ -1,4 +1,4 @@
-package com.example.demo.repository.modelo;
+/*package com.example.demo.repository.modelo;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -16,3 +16,4 @@ public class AutorLibro {
 	
 
 }
+*/

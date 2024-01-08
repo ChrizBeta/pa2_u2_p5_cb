@@ -65,7 +65,7 @@ public class Pa2U2P5CbApplication implements CommandLineRunner {
 		autores.add(autor2);		
 		
 		Libro libro = new Libro();
-		libro.setAutores(null);
+		libro.setAutores(autores);
 		libro.setFechaPublicacion(LocalDate.now());
 		libro.setTitulo("Programacion en Java");
 		libro.setAutores(autores);
@@ -77,6 +77,12 @@ public class Pa2U2P5CbApplication implements CommandLineRunner {
 		
 		this.iLibroService.guardar(libro);
 		
+		Libro librob = this.iLibroService.buscar(1);
+		
+		librob.setFechaPublicacion(LocalDate.of(2000, 12, 25));
+		this.iLibroService.modificar(librob);
+		
+		this.iLibroService.borrar(2);
 		
 
 		
