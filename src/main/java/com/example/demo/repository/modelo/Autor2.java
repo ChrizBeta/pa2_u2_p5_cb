@@ -1,12 +1,14 @@
-/*package com.example.demo.repository.modelo;
+package com.example.demo.repository.modelo;
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
@@ -24,6 +26,7 @@ public class Autor2 {
 	@Column(name = "auto_nacionalidad")
 	private String nacionalidad;
 	
+	@OneToMany(mappedBy = "autor2",cascade = CascadeType.ALL)
 	private List <AutorLibro> autoresLibros;
 	
 	
@@ -46,9 +49,13 @@ public class Autor2 {
 	}
 	public void setNacionalidad(String nacionalidad) {
 		this.nacionalidad = nacionalidad;
+	}	
+	public List<AutorLibro> getAutoresLibros() {
+		return autoresLibros;
 	}
-	
-	
+	public void setAutoresLibros(List<AutorLibro> autoresLibros) {
+		this.autoresLibros = autoresLibros;
+	}
 	@Override
 	public String toString() {
 		return "Autor [id=" + id + ", nombre=" + nombre + ", nacionalidad=" + nacionalidad + "]";
@@ -57,4 +64,3 @@ public class Autor2 {
 	
 
 }
-*/

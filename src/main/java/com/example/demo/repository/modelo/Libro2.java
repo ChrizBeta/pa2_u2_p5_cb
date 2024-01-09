@@ -1,13 +1,15 @@
-/*package com.example.demo.repository.modelo;
+package com.example.demo.repository.modelo;
 
 import java.time.LocalDate;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
@@ -25,7 +27,7 @@ public class Libro2 {
 	@Column(name = "lbr_fecha_publicacion")
 	private LocalDate fechaPublicacion;
 
-	
+	@OneToMany (mappedBy = "libro2",cascade = CascadeType.ALL)
 	private List<AutorLibro> autoreslibros;
 	
 
@@ -54,8 +56,13 @@ public class Libro2 {
 	public void setFechaPublicacion(LocalDate fechaPublicacion) {
 		this.fechaPublicacion = fechaPublicacion;
 	}
+	public List<AutorLibro> getAutoreslibros() {
+		return autoreslibros;
+	}
 
-
+	public void setAutoreslibros(List<AutorLibro> autoreslibros) {
+		this.autoreslibros = autoreslibros;
+	}
 
 	@Override
 	public String toString() {
@@ -64,4 +71,4 @@ public class Libro2 {
 
 }
 
-*/
+
