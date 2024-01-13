@@ -9,12 +9,15 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.NamedQuery;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "libro2")
+@NamedQuery(name = "Libro.queryBuscarPorTitulo",query = "select l from Libro2  l Where l.titulo = :titulo")
+@NamedQuery(name = "Libro.queryBuscarPorFecha",query="Select l from Libro2 l where l.fechaPublicacion >= :fechaPublicacion")
 public class Libro2 {
 
 	@Id

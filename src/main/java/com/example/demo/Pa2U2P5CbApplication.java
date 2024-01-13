@@ -54,48 +54,35 @@ public class Pa2U2P5CbApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		
 
-		List<Autor2> autores2 = new ArrayList<>();
-		List<Libro2> libros2 = new ArrayList<>();
-		List<AutorLibro> lista = new ArrayList<>();
+		System.out.println("\n___________________________Query___________________________");
 		
-		//AUTORES
-		Autor2 autor= new Autor2();
-		autor.setNacionalidad("Ecuatoriano");
-		autor.setNombre("Christian");			
-		Autor2 autor1= new Autor2();
-		autor1.setNacionalidad("Colombiano");
-		autor1.setNombre("Alejandro");
+		List<Libro2> lista = this.iLibroService2.buscarPorFecha(LocalDate.of(2024, 1, 8));
+		for (Libro2 libro : lista) {
+			System.out.println(libro);
+
+		}
 		
-		autores2.add(autor1);
-		autores2.add(autor);
+		System.out.println("\n________________________TypedQuery________________________");
+		Libro2 lib = this.iLibroService2.buscarPorTitulo("Java");
+		System.out.println(lib);
+
+		List<Libro2> lista2 = this.iLibroService2.buscarPorFechaPublicacion(LocalDate.of(2024, 1, 8));
+		for (Libro2 libro : lista2) {
+			System.out.println(libro);
+
+		}
 		
-		//LIBROS
-		Libro2 libro = new Libro2();
-		libro.setFechaPublicacion(LocalDate.now());
-		libro.setTitulo("Progra Java");
+		System.out.println("\n________________________NamedQuery________________________");
+		Libro2 li2 = this.iLibroService2.buscarPorNamed("Java");
+		System.out.println(li2);
 		
+		List<Libro2> list3 = this.iLibroService2.buscarPorFechaNamed(LocalDate.of(2024, 1, 8));
+		for (Libro2 libro : list3) {
+			System.out.println(libro);
+
+		}
 		
-		//HAGO LA RELACION AUTOR CON EL LIBRO
-		AutorLibro autorLibro1 = new AutorLibro();
-		autorLibro1.setLibro2(libro);
-		autorLibro1.setAutor2(autor1);
-		autorLibro1.setFecha(LocalDate.of(2024, 1, 8));
-		AutorLibro autorLibro2= new AutorLibro();
-		autorLibro2.setLibro2(libro);
-		autorLibro2.setAutor2(autor);
-		autorLibro2.setFecha(LocalDate.of(2024, 11, 8));
-		
-		lista.add(autorLibro1);
-		lista.add(autorLibro2);
-		
-		libro.setAutoreslibros(lista);
-		
-		//this.iLibroService2.guardar(libro);
-		
-		Libro2 librob = this.iLibroService2.buscarPorNombre("Progra Java");
-		System.out.println(librob);
 		
 	}
 

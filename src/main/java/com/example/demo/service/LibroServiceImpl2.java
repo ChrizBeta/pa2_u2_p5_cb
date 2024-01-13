@@ -1,5 +1,8 @@
 package com.example.demo.service;
 
+import java.time.LocalDate;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -43,6 +46,37 @@ public class LibroServiceImpl2 implements ILibroService2{
 	public Libro2 buscarPorNombre(String nombre) {
 		// TODO Auto-generated method stub
 		return this.iLibroRepo2.seleccionarPorNombre(nombre);
+	}
+
+	@Override
+	public List<Libro2> buscarPorFecha(LocalDate fecha) {
+		// TODO Auto-generated method stub
+		return this.iLibroRepo2.seleccionarPorFechaPublicacion(fecha);
+	}
+
+	@Override
+	public Libro2 buscarPorTitulo(String titulo) {
+		// TODO Auto-generated method stub
+		return this.iLibroRepo2.seleccionarPorTitulo(titulo);
+		
+	}
+
+	@Override
+	public List<Libro2> buscarPorFechaPublicacion(LocalDate fechaPublicacion) {
+		// TODO Auto-generated method stub
+		return this.buscarPorFecha(fechaPublicacion);
+	}
+
+	@Override
+	public Libro2 buscarPorNamed(String titulo) {
+		// TODO Auto-generated method stub
+		return this.iLibroRepo2.seleccionarPorNamed(titulo);
+	}
+
+	@Override
+	public List<Libro2> buscarPorFechaNamed(LocalDate fechaPublicacion) {
+		// TODO Auto-generated method stub
+		return this.iLibroRepo2.seleccionarPorFechaNamed(fechaPublicacion);
 	}
 
 		
