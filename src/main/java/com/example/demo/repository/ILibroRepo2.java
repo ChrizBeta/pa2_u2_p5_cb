@@ -24,4 +24,9 @@ public interface ILibroRepo2 {
 	public Libro2 seleccionarPorNamed (String titulo);
 	public List <Libro2> seleccionarPorFechaNamed(LocalDate fechaPublicacion);
 	
+	//--------- NativeQuery -------------
+	
+	
+	
+	//--------- CriteriaAPIQuery -------------
 }

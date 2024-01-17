@@ -1,17 +1,12 @@
 package com.example.demo;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.example.demo.repository.modelo.Autor2;
-import com.example.demo.repository.modelo.AutorLibro;
-import com.example.demo.repository.modelo.Libro2;
+import com.example.demo.repository.modelo.Ciudadano;
+import com.example.demo.repository.modelo.Empleado;
 import com.example.demo.service.IAlumnoService;
 import com.example.demo.service.ICiudadanoService;
 import com.example.demo.service.IEmpleadoService;
@@ -55,6 +50,7 @@ public class Pa2U2P5CbApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
+		/*
 		System.out.println("\n___________________________Query___________________________");
 		
 		List<Libro2> lista = this.iLibroService2.buscarPorFecha(LocalDate.of(2024, 1, 8));
@@ -80,9 +76,15 @@ public class Pa2U2P5CbApplication implements CommandLineRunner {
 		List<Libro2> list3 = this.iLibroService2.buscarPorFechaNamed(LocalDate.of(2024, 1, 8));
 		for (Libro2 libro : list3) {
 			System.out.println(libro);
-
 		}
 		
+		*/
+		
+		Empleado empl = this.ciudadanoService.buscarPorCedula("123456789");
+		System.out.println(empl);
+		
+		Ciudadano ciu = this.ciudadanoService.buscarPorCedulaCiu("123456789");
+		System.out.println(ciu);
 		
 	}
 
