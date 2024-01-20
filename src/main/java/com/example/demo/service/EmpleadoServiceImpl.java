@@ -1,5 +1,8 @@
 package com.example.demo.service;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,6 +40,18 @@ public class EmpleadoServiceImpl implements IEmpleadoService{
 		// TODO Auto-generated method stub
 		this.empleandoRepo.eliminar(id);
 		
+	}
+
+	@Override
+	public Empleado buscaarPorFechaIngreso(LocalDate fechaIngreso) {
+		// TODO Auto-generated method stub
+		return this.empleandoRepo.seleccionarPorFechaIngreso(fechaIngreso);
+	}
+
+	@Override
+	public Empleado buscarPorSalario(BigDecimal salario) {
+		// TODO Auto-generated method stub
+		return this.empleandoRepo.seleccionarPorSalario(salario);
 	}
 	
 

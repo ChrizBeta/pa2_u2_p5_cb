@@ -1,11 +1,14 @@
 package com.example.demo.repository;
 
+import java.time.LocalDate;
+
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.repository.modelo.Estudiante;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 
 @Repository
@@ -34,6 +37,14 @@ public class EstudianteRepoImpl implements IEstudianteRepo{
 	@Override
 	public void eliminar(Integer id) {
 		this.entityManager.remove(this.seleccionar(id));		
+	}
+
+	@Override
+	public Estudiante seleccionarPorFechaNacimiento(LocalDate fechaNacimiento) {
+		TypedQuery<Estudiante> myQuery = this.entityManager.createQuery("select e from Estudiante e Where e.fechaNacimiento = :fechaNacimiento",Estudiante.class);
+		myQuery.setParameter("fechaNacimiento", fechaNacimiento);
+		return myQuery.getSingleResult();
+	
 	}
 	
 

@@ -22,6 +22,8 @@ public interface ILibroService2 {
 	
 	public Libro2 buscarPorNamed (String titulo);
 	public List <Libro2> buscarPorFechaNamed(LocalDate fechaPublicacion);
+	
+	public Libro2 buscarPorTituloNative (String titulo);
 
 	
 }

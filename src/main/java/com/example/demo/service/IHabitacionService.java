@@ -8,5 +8,7 @@ public interface IHabitacionService {
 	public void guardar (Habitacion habitacion);
 	public void modificaar (Habitacion habitacion);
 	public void borrar (Integer id);	
+	
+	public Habitacion buscarPorClase (String clase);
 
 }

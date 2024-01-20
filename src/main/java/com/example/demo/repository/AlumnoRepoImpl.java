@@ -6,6 +6,7 @@ import com.example.demo.repository.modelo.Alumno;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 
 @Repository
@@ -37,6 +38,13 @@ public class AlumnoRepoImpl implements IAlumnoRepo{
 	public void eliminar(Integer id) {
 		// TODO Auto-generated method stub
 		this.entityManager.remove(this.seleccionar(id));
+	}
+
+	@Override
+	public Alumno seleccionarPorNombre(String nombre) {
+		TypedQuery<Alumno> myQuery = this.entityManager.createQuery("select a from Alumno  a Where a.nombre = :nombre",Alumno.class);
+		myQuery.setParameter("nombre", nombre);
+		return myQuery.getSingleResult();	
 	}
 
 }

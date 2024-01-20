@@ -9,4 +9,6 @@ public interface IHotelService {
 	public void modificar (Hotel hotel);
 	public void borrar (Integer id);	
 	
+	public Hotel buscarPorDireccion (String direccion);
+	
 }

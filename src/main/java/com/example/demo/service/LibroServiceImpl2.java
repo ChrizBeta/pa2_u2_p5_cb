@@ -79,6 +79,12 @@ public class LibroServiceImpl2 implements ILibroService2{
 		return this.iLibroRepo2.seleccionarPorFechaNamed(fechaPublicacion);
 	}
 
+	@Override
+	public Libro2 buscarPorTituloNative(String titulo) {
+		// TODO Auto-generated method stub
+		return this.buscarPorTituloNative(titulo);
+	}
+
 		
 	
 

@@ -38,6 +38,12 @@ public class HotelServiceImpl implements IHotelService{
 		this.hotelRepo.eliminar(id);
 		
 	}
+
+	@Override
+	public Hotel buscarPorDireccion(String direccion) {
+		// TODO Auto-generated method stub
+		return this.hotelRepo.seleccionarPorDireccion(direccion);
+	}
 	
 
 }

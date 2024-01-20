@@ -1,11 +1,16 @@
 package com.example.demo.repository;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.repository.modelo.Empleado;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.Query;
+import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 
 @Repository
@@ -41,6 +46,22 @@ public class EmpleadoRepoImpl implements IEmpleandoRepo{
 		Empleado em=this.seleccionar(id);
 		this.entityManager.remove(em);
 		
+	}
+
+	@Override
+	public Empleado seleccionarPorFechaIngreso(LocalDate fechaIngreso) {
+		TypedQuery<Empleado> myQuery = this.entityManager.createQuery("select e from Empleado  e Where e.fechaIngreso = :fechaIngreso",Empleado.class);
+		myQuery.setParameter("fechaIngreso", fechaIngreso);
+		return myQuery.getSingleResult();
+	
+	}
+
+	@Override
+	public Empleado seleccionarPorSalario(BigDecimal salario) {
+
+		Query myQuery= this.entityManager.createNativeQuery("Select * From empleado e Where e.emp_salario = :salario",Empleado.class);
+		myQuery.setParameter("salario", salario);
+		return (Empleado) myQuery.getSingleResult();
 	}
 	
 

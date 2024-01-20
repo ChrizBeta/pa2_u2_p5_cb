@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,6 +37,12 @@ public class EstudianteServiceImpl implements IEstudianteService {
 	public void borrar(Integer id) {
 		// TODO Auto-generated method stub
 		this.estudianteRepo.eliminar(id);
+	}
+
+	@Override
+	public Estudiante buscarPorFechaNacimiento(LocalDate fechaNacimiento) {
+		// TODO Auto-generated method stub
+		return this.estudianteRepo.seleccionarPorFechaNacimiento(fechaNacimiento);
 	}
 	
 	

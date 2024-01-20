@@ -106,4 +106,11 @@ public class LibroRepoImpl2 implements ILibroRepo2 {
 		return myQuery.getResultList();
 	}
 
+	@Override
+	public Libro2 seleccionarPorTituloNative(String titulo) {
+		Query myQuery = this.entityManager.createNativeQuery("Select * From libro2 l Where l.lbr_titulo = :lbr_titulo",Libro2.class);
+		myQuery.setParameter("lbr_titulo", titulo);
+		return (Libro2) myQuery.getSingleResult();
+	}
+
 }

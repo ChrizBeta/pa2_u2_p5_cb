@@ -39,6 +39,12 @@ public class AutorServiceImpl implements IAutorService{
 		
 	}
 
+	@Override
+	public Autor buscarPorNacionalidad(String nacionalidad) {
+		// TODO Auto-generated method stub
+		return this.autorRepo.seleccionarPorNacionalidad(nacionalidad);
+	}
+
 
 	
 	

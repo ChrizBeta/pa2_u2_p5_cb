@@ -2,10 +2,12 @@ package com.example.demo.repository;
 
 import org.springframework.stereotype.Repository;
 
+import com.example.demo.repository.modelo.Ciudadano;
 import com.example.demo.repository.modelo.Hotel;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.Query;
 import jakarta.transaction.Transactional;
 
 @Repository
@@ -46,6 +48,13 @@ public class HotelRepoImpl implements IHotelRepo {
 		Hotel hotel = this.seleccionar(id);
 		this.entityManager.remove(hotel);
 		
+	}
+
+	@Override
+	public Hotel seleccionarPorDireccion(String direccion) {
+		Query myQuery= this.entityManager.createNativeQuery("Select * From hotel h Where h.htl_direccion = :direccion",Hotel.class);
+		myQuery.setParameter("direccion", direccion);
+		return (Hotel) myQuery.getSingleResult();
 	}
 	
 

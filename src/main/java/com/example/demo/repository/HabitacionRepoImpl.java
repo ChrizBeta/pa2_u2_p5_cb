@@ -2,10 +2,12 @@ package com.example.demo.repository;
 
 import org.springframework.stereotype.Repository;
 
+import com.example.demo.repository.modelo.Ciudadano;
 import com.example.demo.repository.modelo.Habitacion;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.Query;
 import jakarta.transaction.Transactional;
 
 @Repository
@@ -43,6 +45,13 @@ public class HabitacionRepoImpl implements IHabitacionRepo {
 		
 		this.entityManager.remove(habitacion);
 		
+	}
+
+	@Override
+	public Habitacion seleccionarPorClase(String clase) {
+		Query myQuery= this.entityManager.createNativeQuery("Select * From habitacion h Where h.habi_clase = :clase",Habitacion.class);
+		myQuery.setParameter("clase", clase);
+		return (Habitacion) myQuery.getSingleResult();
 	}
 	
 	

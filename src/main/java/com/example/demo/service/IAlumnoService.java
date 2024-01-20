@@ -8,6 +8,8 @@ public interface IAlumnoService {
 	public void guardar (Alumno estudiante);
 	public void modificar (Alumno estudiante);
 	public void borrar (Integer id);
+	
+	public Alumno buscarPorNombre(String nombre);
 
 
 }

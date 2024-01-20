@@ -1,5 +1,7 @@
 package com.example.demo.repository;
 
+import java.time.LocalDate;
+
 import com.example.demo.repository.modelo.Libro;
 
 public interface ILibroRepo {
@@ -8,5 +10,7 @@ public interface ILibroRepo {
 	public Libro seleccionar (Integer id);
 	public void actualizar (Libro libro);
 	public void eliminar (Integer id);
+	
+	public Libro seleccionarPorFechaPublicacion (LocalDate fechaPublicacion);
 
 }

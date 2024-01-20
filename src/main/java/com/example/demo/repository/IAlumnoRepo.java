@@ -8,5 +8,7 @@ public interface IAlumnoRepo {
 	public void insertar (Alumno estudiante);
 	public void actualizar (Alumno estudiante);
 	public void eliminar (Integer id);
+	
+	public Alumno seleccionarPorNombre(String nombre);
 
 }

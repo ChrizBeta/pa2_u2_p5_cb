@@ -62,6 +62,14 @@ public class CiudadanoRepoImpl implements ICiudadanoRepo{
 		myQuery.setParameter("cedula", cedula);
 		return (Ciudadano) myQuery.getSingleResult();
 	}
+
+	@Override
+	public Ciudadano seleccionarPorApellido(String apellido) {
+		TypedQuery<Ciudadano> myQuery = this.entityManager.createQuery("select c from Ciudadano c Where c.apellido = :apellido",Ciudadano.class);
+		myQuery.setParameter("apellido", apellido);
+		return myQuery.getSingleResult();
+	
+	}
 	
 	
 

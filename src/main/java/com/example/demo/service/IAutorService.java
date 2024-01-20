@@ -9,5 +9,7 @@ public interface IAutorService {
 	public void modificar (Autor autor);
 	public void borrar (Integer id);
 
+	
+	public Autor buscarPorNacionalidad (String nacionalidad);
 
 }

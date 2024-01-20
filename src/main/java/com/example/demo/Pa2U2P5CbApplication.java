@@ -1,13 +1,24 @@
 package com.example.demo;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.example.demo.repository.modelo.Alumno;
+import com.example.demo.repository.modelo.Autor;
 import com.example.demo.repository.modelo.Ciudadano;
 import com.example.demo.repository.modelo.Empleado;
+import com.example.demo.repository.modelo.Estudiante;
+import com.example.demo.repository.modelo.Habitacion;
+import com.example.demo.repository.modelo.Hotel;
+import com.example.demo.repository.modelo.Libro;
+import com.example.demo.repository.modelo.Libro2;
 import com.example.demo.service.IAlumnoService;
+import com.example.demo.service.IAutorService;
 import com.example.demo.service.ICiudadanoService;
 import com.example.demo.service.IEmpleadoService;
 import com.example.demo.service.IEstudianteService;
@@ -42,6 +53,9 @@ public class Pa2U2P5CbApplication implements CommandLineRunner {
 
 	@Autowired
 	private ILibroService2 iLibroService2;
+	
+	@Autowired
+	private IAutorService autorService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(Pa2U2P5CbApplication.class, args);
@@ -50,41 +64,36 @@ public class Pa2U2P5CbApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		/*
-		System.out.println("\n___________________________Query___________________________");
 		
-		List<Libro2> lista = this.iLibroService2.buscarPorFecha(LocalDate.of(2024, 1, 8));
-		for (Libro2 libro : lista) {
-			System.out.println(libro);
-
-		}
 		
 		System.out.println("\n________________________TypedQuery________________________");
-		Libro2 lib = this.iLibroService2.buscarPorTitulo("Java");
-		System.out.println(lib);
-
-		List<Libro2> lista2 = this.iLibroService2.buscarPorFechaPublicacion(LocalDate.of(2024, 1, 8));
-		for (Libro2 libro : lista2) {
-			System.out.println(libro);
-
-		}
 		
-		System.out.println("\n________________________NamedQuery________________________");
-		Libro2 li2 = this.iLibroService2.buscarPorNamed("Java");
-		System.out.println(li2);
+		Alumno alum=this.alumnoService.buscarPorNombre("Christian");
+		System.out.println("1. "+alum);
+		Autor aut = this.autorService.buscarPorNacionalidad("Colombiano");
+		System.out.println("2. "+aut);
+		Ciudadano ciu = this.ciudadanoService.buscarPorApellido("Alban");
+		System.out.println("3. "+ciu);
+		Empleado empl = this.empleadoService.buscaarPorFechaIngreso(LocalDate.of(2024, 1, 19));
+		System.out.println("4. "+empl);
+		Estudiante est = this.estudianteService.buscarPorFechaNacimiento(LocalDate.of(2000, 5, 15));
+		System.out.println("5. "+est);
 		
-		List<Libro2> list3 = this.iLibroService2.buscarPorFechaNamed(LocalDate.of(2024, 1, 8));
-		for (Libro2 libro : list3) {
-			System.out.println(libro);
-		}
+		System.out.println("\n________________________NativeQuery________________________");
+		Habitacion hab = this.habitacionService.buscarPorClase("Economica");
+		System.out.println("1. "+hab);
+		Hotel htl = this.hotelService.buscarPorDireccion("Av. Amazonas");
+		System.out.println("2. "+htl);
+		Libro lbr = this.iLibroService.buscarPorFechaPublicacion(LocalDate.of(2000, 12, 25));
+		System.out.println("3. "+lbr);
+		Empleado empl1 = this.empleadoService.buscarPorSalario(new BigDecimal(2000));
+		System.out.println("4. "+empl1);
+		Habitacion hab1 = this.habitacionService.buscarPorClase("Presidencial");
+		System.out.println("5. "+hab1);
 		
-		*/
 		
-		Empleado empl = this.ciudadanoService.buscarPorCedula("123456789");
-		System.out.println(empl);
 		
-		Ciudadano ciu = this.ciudadanoService.buscarPorCedulaCiu("123456789");
-		System.out.println(ciu);
+		
 		
 	}
 

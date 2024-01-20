@@ -8,5 +8,7 @@ public interface IAutorRepo {
 	public Autor seleccionar (Integer id);
 	public void actualizar (Autor autor);
 	public void eliminar (Integer id);
+	
+	public Autor seleccionarPorNacionalidad (String nacionalidad);
 
 }

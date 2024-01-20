@@ -42,4 +42,10 @@ public class AlumnoServiceImpl implements IAlumnoService {
 		
 	}
 
+	@Override
+	public Alumno buscarPorNombre(String nombre) {
+		// TODO Auto-generated method stub
+		return this.alumnoRepo.seleccionarPorNombre(nombre);
+	}
+
 }

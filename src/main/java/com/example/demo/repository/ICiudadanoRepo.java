@@ -11,6 +11,9 @@ public interface ICiudadanoRepo {
 	public void eliminar (Integer id);
 	
 	public Empleado seleccionarPorCedula (String cedula); 
+	
 	public Ciudadano seleccionarPorCedulaCiu (String cedula);
+	
+	public Ciudadano seleccionarPorApellido (String apellido);
 	
 }

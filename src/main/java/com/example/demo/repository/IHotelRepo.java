@@ -9,4 +9,6 @@ public interface IHotelRepo {
 	public void actualizar (Hotel hotel);
 	public void eliminar (Integer id);	
 	
+	
+	public Hotel seleccionarPorDireccion (String direccion);
 }
