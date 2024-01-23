@@ -31,31 +31,7 @@ import com.example.demo.service.ILibroService2;
 public class Pa2U2P5CbApplication implements CommandLineRunner {
 
 	@Autowired
-	private IEstudianteService estudianteService;
-
-	@Autowired
-	private IAlumnoService alumnoService;
-
-	@Autowired
 	private ICiudadanoService ciudadanoService;
-
-	@Autowired
-	private IEmpleadoService empleadoService;
-
-	@Autowired
-	private IHotelService hotelService;
-
-	@Autowired
-	private IHabitacionService habitacionService;
-
-	@Autowired
-	private ILibroService iLibroService;
-
-	@Autowired
-	private ILibroService2 iLibroService2;
-	
-	@Autowired
-	private IAutorService autorService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(Pa2U2P5CbApplication.class, args);
@@ -64,22 +40,19 @@ public class Pa2U2P5CbApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
+		System.out.println("\n________________________________________________ TAREA 10 ________________________________________________\n");
+		
 		
 		Ciudadano ciu = this.ciudadanoService.buscarPorApellidoNuevo("Alban");
-		System.out.println(ciu);
-		
+		System.out.println("1. "+ciu);		
 		Ciudadano ciu1 = this.ciudadanoService.buscarPorCriteria("Christian", "Betancourt", "1722781000");
-		System.out.println(ciu1);
-		
+		System.out.println("2. "+ciu1);		
 		Ciudadano ciu2 = this.ciudadanoService.buscarPorCriteria("Christian", "Betancourt", "0522781000");
-		System.out.println(ciu2);
-		
-		System.out.println("____________ Criteria API Query AND OR ____________");
+		System.out.println("3. "+ciu2);		
 		Ciudadano ciu3 = this.ciudadanoService.buscarPorCriteriaAndOr("Christian", "Betancourt", "1722781000");
-		System.out.println(ciu3);
-		
+		System.out.println("4. "+ciu3);		
 		Ciudadano ciu4 = this.ciudadanoService.buscarPorCriteriaAndOr("Christian", "Betancourt", "0522781000");
-		System.out.println(ciu4);
+		System.out.println("5. "+ciu4);
 	}
 
 }
