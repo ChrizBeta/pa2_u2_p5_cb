@@ -65,36 +65,21 @@ public class Pa2U2P5CbApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
 		
+		Ciudadano ciu = this.ciudadanoService.buscarPorApellidoNuevo("Alban");
+		System.out.println(ciu);
 		
-		System.out.println("\n________________________TypedQuery________________________");
+		Ciudadano ciu1 = this.ciudadanoService.buscarPorCriteria("Christian", "Betancourt", "1722781000");
+		System.out.println(ciu1);
 		
-		Alumno alum=this.alumnoService.buscarPorNombre("Christian");
-		System.out.println("1. "+alum);
-		Autor aut = this.autorService.buscarPorNacionalidad("Colombiano");
-		System.out.println("2. "+aut);
-		Ciudadano ciu = this.ciudadanoService.buscarPorApellido("Alban");
-		System.out.println("3. "+ciu);
-		Empleado empl = this.empleadoService.buscaarPorFechaIngreso(LocalDate.of(2024, 1, 19));
-		System.out.println("4. "+empl);
-		Estudiante est = this.estudianteService.buscarPorFechaNacimiento(LocalDate.of(2000, 5, 15));
-		System.out.println("5. "+est);
+		Ciudadano ciu2 = this.ciudadanoService.buscarPorCriteria("Christian", "Betancourt", "0522781000");
+		System.out.println(ciu2);
 		
-		System.out.println("\n________________________NativeQuery________________________");
-		Habitacion hab = this.habitacionService.buscarPorClase("Economica");
-		System.out.println("1. "+hab);
-		Hotel htl = this.hotelService.buscarPorDireccion("Av. Amazonas");
-		System.out.println("2. "+htl);
-		Libro lbr = this.iLibroService.buscarPorFechaPublicacion(LocalDate.of(2000, 12, 25));
-		System.out.println("3. "+lbr);
-		Empleado empl1 = this.empleadoService.buscarPorSalario(new BigDecimal(2000));
-		System.out.println("4. "+empl1);
-		Habitacion hab1 = this.habitacionService.buscarPorClase("Presidencial");
-		System.out.println("5. "+hab1);
+		System.out.println("____________ Criteria API Query AND OR ____________");
+		Ciudadano ciu3 = this.ciudadanoService.buscarPorCriteriaAndOr("Christian", "Betancourt", "1722781000");
+		System.out.println(ciu3);
 		
-		
-		
-		
-		
+		Ciudadano ciu4 = this.ciudadanoService.buscarPorCriteriaAndOr("Christian", "Betancourt", "0522781000");
+		System.out.println(ciu4);
 	}
 
 }

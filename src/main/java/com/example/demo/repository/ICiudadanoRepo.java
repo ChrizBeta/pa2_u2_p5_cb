@@ -16,4 +16,9 @@ public interface ICiudadanoRepo {
 	
 	public Ciudadano seleccionarPorApellido (String apellido);
 	
+	public Ciudadano selecionarPorApellidoNuevo(String apellido);
+	
+	public Ciudadano selecionarPorCriteria(String nombre, String apellido, String cedula);
+	
+	public Ciudadano selecionarPorCriteriaAndOr(String nombre, String apellido, String cedula);
 }
